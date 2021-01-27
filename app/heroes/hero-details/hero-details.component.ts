@@ -26,7 +26,12 @@ export class HeroDetailsComponent implements OnInit, OnDestroy {
     this.subscription = this.route.params.pipe(
       map(params=>params['id'])
     ).subscribe((guid:string)=>{
-      this.hero = this.heroesService.getHero(guid);
+      let hero = this.heroesService.getHero(guid);
+      if(!hero){
+        this.heroesService.fetchHeroes(guid);
+      }
+      else
+        this.hero = hero;
     })
     this.heroesService.heroChange.subscribe((hero:Hero)=>{
       this.hero = hero;

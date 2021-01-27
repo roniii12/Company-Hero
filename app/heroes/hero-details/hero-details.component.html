@@ -1,3 +1,7 @@
+<div *ngIf="hero==null">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+<div *ngIf="hero!=null">
 <h1>{{hero.name}}</h1>
 <div class="details-hero">
   <div class="attribute">
@@ -42,3 +46,4 @@
   </div>
 </div>
 <button class="train" (click)="onTrainButtonClick()">training</button>
+</div>
