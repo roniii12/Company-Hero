@@ -1,0 +1,10 @@
+.attribute{
+  margin: 0.5rem 0;
+}
+.title-attribute{
+  font-size: 1.1rem;
+  text-decoration: underline;
+}
+h1{
+  margin: 0 0 1rem 0;
+}

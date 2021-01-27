@@ -1,0 +1,44 @@
+<h1>{{hero.name}}</h1>
+<div class="details-hero">
+  <div class="attribute">
+    <div class="title-attribute">
+      ability:
+    </div>
+    <div class="content-attribute">
+      {{hero.ability}}
+    </div>
+  </div>
+  <div class="attribute">
+    <div class="title-attribute">
+      suite colors:
+    </div>
+    <div class="content-attribute">
+      {{hero.suiteColors}}
+    </div>
+  </div>
+  <div class="attribute">
+    <div class="title-attribute">
+      starting power:
+    </div>
+    <div class="content-attribute">
+      {{hero.startingPower}}
+    </div>
+  </div>
+  <div class="attribute">
+    <div class="title-attribute">
+      current power:
+    </div>
+    <div class="content-attribute">
+      {{hero.currentPower}}
+    </div>
+  </div>
+  <div class="attribute">
+    <div class="title-attribute">
+      date:
+    </div>
+    <div class="content-attribute">
+      {{hero.date}}
+    </div>
+  </div>
+</div>
+<button class="train" (click)="onTrainButtonClick()">training</button>

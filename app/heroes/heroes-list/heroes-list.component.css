@@ -1,0 +1,13 @@
+.wrap-card{
+  margin: 0 0 10px 0;
+}
+.filter-heroes{
+  margin: 0 auto 10px auto;
+  width: fit-content;
+}
+
+.filter-heroes input{
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+

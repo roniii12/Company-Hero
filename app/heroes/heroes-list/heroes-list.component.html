@@ -1,0 +1,9 @@
+
+<div class="filter-heroes">
+  <input type="text" [(ngModel)]="filtered" placeholder="search hero">
+</div>
+
+<div class="wrap-card" *ngFor="let hero of heroes | filter:filtered:'name'; let i = index" >
+  <app-hero-item [hero]="hero"></app-hero-item>
+</div>
+
