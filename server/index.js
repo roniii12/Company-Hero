@@ -48,22 +48,29 @@ app.post('/getHero',cors(corsOptions),auth,async (req,res)=>{
         }
     })
     if(!hero){
-        return res.status(400).send('Hero is not exist')
+        return res.status(400).send('UNKNOWN_HERO')
     }
     res.send(hero.toJSON())
 })
 
 app.post('/updatePowerHero',cors(corsOptions),auth, async (req,res)=>{
-    let body = req.body;
-    await Hero.update({
-        currentPower:body.power
-    },
-    {where: {_guid:body._guid}}
-    );
-    let hero = await Hero.findOne({
-        where:{_guid:body._guid}
-    })
-    res.json(hero.toJSON())
+    try{
+        let body = req.body;
+        await Hero.update({
+            currentPower:body.power
+        },
+        {where: {_guid:body._guid}}
+        );
+        let hero = await Hero.findOne({
+            where:{_guid:body._guid}
+        })
+        if(!hero)
+            return res.status(400).send('UNKNOWN_HERO')
+        res.json(hero.toJSON())
+    }catch(e){
+        console.log(e)
+        res.status(400).send('UNKNOWN_HERO')
+    }
 })
 app.post('/signUp',cors(corsOptions),async(req,res)=>{
     try{
