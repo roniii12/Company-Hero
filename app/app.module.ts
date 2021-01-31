@@ -1,40 +1,42 @@
+import { FormsModule } from '@angular/forms';
+import { MbscModule } from '@mobiscroll/angular';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StoreModule } from '@ngrx/store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from '../environments/environment';
-import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { MultiSelectAllModule } from '@syncfusion/ej2-angular-dropdowns';
+
+import { NumericTextBoxModule } from '@syncfusion/ej2-angular-inputs';
+
+import { CheckBoxModule, ButtonModule } from '@syncfusion/ej2-angular-buttons';
 import { SharedModule } from './shared/shared.module';
-import { EffectsModule } from '@ngrx/effects';
-import { HeroesEffects } from './heroes/store/heroes.effects';
-import * as fromApp from './store/app.reducer';
-import { AuthEffects } from './auth/store/auth.effects'
-import { HttpClientModule } from '@angular/common/http';
-import { CoreModule } from './core.module';
-import { HeaderComponent } from './header/header.component';
-import { HeroesService } from './heroes/heroes.service';
+import { SelectInputComponent } from './select-input/select-input.component';
+import { DatePickerComponent } from './date-picker/date-picker.component';
+import { DatePickerCalendarComponent } from './date-picker/date-picker-calendar/date-picker-calendar.component';
+import { DatePipe } from '@angular/common';
+import { DatePickerInputComponent } from './date-picker/date-picker-input/date-picker-input.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    SelectInputComponent,
+    DatePickerComponent,
+    DatePickerCalendarComponent,
+    DatePickerInputComponent,
   ],
   imports: [
+    FormsModule,
+    MbscModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    StoreModule.forRoot(fromApp.appRducer),
-    EffectsModule.forRoot([HeroesEffects, AuthEffects]),
-    !environment.production ? StoreDevtoolsModule.instrument() : [],
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    StoreRouterConnectingModule.forRoot(),
-    SharedModule,
-    CoreModule
+    MultiSelectAllModule,
+    NumericTextBoxModule,
+    CheckBoxModule,
+    ButtonModule,
+    SharedModule
   ],
-  providers: [HeroesService],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
