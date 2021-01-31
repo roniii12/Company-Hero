@@ -1,0 +1,5 @@
+.welcome-message{
+  color: var(--title-color);
+  text-shadow: 1px 1px 0px #1065f5;
+  font-size: 1.2rem;
+}

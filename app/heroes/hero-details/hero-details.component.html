@@ -1,49 +1,53 @@
 <div *ngIf="hero==null">
   <app-loading-spinner></app-loading-spinner>
 </div>
-<div *ngIf="hero!=null">
+<div class="profile-hero" *ngIf="hero!=null">
 <h1>{{hero.name}}</h1>
 <div class="details-hero">
-  <div class="attribute">
-    <div class="title-attribute">
-      ability:
+  <div class="half">
+    <div class="attribute">
+      <div class="title-attribute">
+        ability:
+      </div>
+      <div class="content-attribute">
+        {{hero.ability}}
+      </div>
     </div>
-    <div class="content-attribute">
-      {{hero.ability}}
+    <div class="attribute">
+      <div class="title-attribute">
+        suit colors:
+      </div>
+      <div class="content-attribute">
+        {{hero.suitColors}}
+      </div>
     </div>
-  </div>
-  <div class="attribute">
-    <div class="title-attribute">
-      suite colors:
-    </div>
-    <div class="content-attribute">
-      {{hero.suiteColors}}
-    </div>
-  </div>
-  <div class="attribute">
-    <div class="title-attribute">
-      starting power:
-    </div>
-    <div class="content-attribute">
-      {{hero.startingPower}}
-    </div>
-  </div>
-  <div class="attribute">
-    <div class="title-attribute">
-      current power:
-    </div>
-    <div class="content-attribute">
-      {{hero.currentPower}}
+    <div class="attribute">
+      <div class="title-attribute">
+        starting power:
+      </div>
+      <div class="content-attribute">
+        {{hero.startingPower}}
+      </div>
     </div>
   </div>
-  <div class="attribute">
-    <div class="title-attribute">
-      date:
+  <div class="half">
+    <div class="attribute">
+      <div class="title-attribute">
+        current power:
+      </div>
+      <div class="content-attribute">
+        {{hero.currentPower}}
+      </div>
     </div>
-    <div class="content-attribute">
-      {{hero.date}}
+    <div class="attribute">
+      <div class="title-attribute">
+        date:
+      </div>
+      <div class="content-attribute">
+        {{hero.date}}
+      </div>
     </div>
   </div>
 </div>
-<button class="train" (click)="onTrainButtonClick()">training</button>
+<button class="train-button" (click)="onTrainButtonClick()">Train Me</button>
 </div>

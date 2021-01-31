@@ -3,7 +3,7 @@ export interface Hero {
   name:string;
   date:Date;
   ability:string;
-  suiteColors:string;
+  suitColors:string;
   startingPower:number;
   currentPower:number;
 }

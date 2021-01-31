@@ -1,4 +1,139 @@
-.form-control{
+.wrap-auth{
+  background-color: #eeeeee;
+  width: 100vw;
+  height: 100vh;
+}
+
+.wrap-auth-content,.wrap-auth{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+}
+
+.wrap-auth-content{
+  transform: translateY(-25%);
+}
+
+.page-title{
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: 900;
+  color:var(--title-color);
+  text-shadow: var(--title-text-shadow);
+}
+
+.form{
+  background-color: #fff;
+  padding: 20px 10px;
+  border-radius: 10px;
+  /* box-shadow: 0 1px 3px 0 rgba(60,64,67,.30), 0 4px 8px 3px rgba(60,64,67,.15); */
+  box-shadow: 3px 5px 8px #cbc5c5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-title{
+  margin-bottom: 10px;
+}
+
+/* .form-control{
   width: fit-content;
   margin: 10px;
+  width: 364px;
+  text-align: center;
+}
+.form-input{
+  width: 100%;
+  outline: none;
+  border: 1px solid #bdbdbd;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: .2s all;
+}
+.errorField{
+  transition: 1s border-color;
+  border-color: red;
+}
+.errorMsg{
+  transition: 2s all;
+  animation: appearErrorMessage 1s;
+  text-align: center;
+  color: red;
+}
+
+.form-input:active,.form-input:focus{
+  border-color: #93d6f1;
+  box-shadow: 0px 0px 4px 2px #5cc4ee;
+}
+
+.form-button{
+  width: 100%;
+  padding: .8rem;
+  border: none;
+  outline: none;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  background-color: #fc4a4a;
+  transition: .2s all;
+  cursor: pointer;
+}
+.form-button:hover,.form-button:active{
+  background-color: #e03c3c;
+}
+.form-button:disabled{
+  background-color: #e48c8c;
+  cursor: default;
+} */
+.switchButton{
+  font-size: 1.1rem;
+  width: fit-content;
+  background-color: #5393ff;
+  align-self: center;
+}
+.switchButton:hover,.switchButton:active{
+  background-color: #4883e7;
+}
+
+@media screen and (max-width: 470px){
+  .wrap-auth{
+    position: static;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+  }
+  .wrap-auth,.wrap-auth-content{
+    justify-content: flex-start;
+    width: 100%;
+  }
+  .wrap-auth-content{
+    transform: none;
+  }
+  .form{
+    box-shadow: none;
+    width: 100%;
+  }
+  .form form{
+    width: 100%;
+  }
+  .form-control{
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+@keyframes appearErrorMessage{
+  0%{
+    transform: scale(0);
+    opacity: 0;
+  }
+  100%{
+    transform: scale(1);
+    opacity: 1;
+  }
 }

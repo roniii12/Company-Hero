@@ -1,0 +1,86 @@
+<div class="form">
+  <div class="page-title">
+    Create A New Hero
+  </div>
+<form class="form-hero" [formGroup]="createHeroForm" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <div class="half">
+      <div class="form-control">
+        <label class="form-label" for="name">Name</label>
+        <input
+        type="text"
+        class="form-input"
+        id="name"
+        name="name"
+        formControlName="name"
+        [ngClass]="{'errorField':name.touched && name.errors}"
+        (focus)="name.errors?null:name.markAsUntouched()"
+        >
+        <div *ngIf="name.touched && name.errors" class="errorMsg">
+          <span *ngIf="name.errors.required">Name is required</span>
+        </div>
+      </div>
+    </div>
+    <div class="half">
+      <div class="form-control">
+        <label class="form-label" for="ability">Ability</label>
+        <input
+        type="text"
+        class="form-input"
+        id="ability"
+        name="ability"
+        formControlName="ability"
+        [ngClass]="{'errorField':ability.touched && ability.errors}"
+        (focus)="ability.errors?null:ability.markAsUntouched()"
+        >
+        <div *ngIf="ability.touched && ability.errors" class="errorMsg">
+          <span *ngIf="ability.errors.required">Ability is required</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="half">
+      <div class="form-control">
+        <label class="form-label" for="suitColors">Suit Colors</label>
+        <input
+        type="text"
+        class="form-input"
+        id="suitColors"
+        name="suitColors"
+        formControlName="suitColors"
+        [ngClass]="{'errorField':suitColors.touched && suitColors.errors}"
+        (focus)="suitColors.errors?null:suitColors.markAsUntouched()"
+        >
+        <div *ngIf="suitColors.touched && suitColors.errors" class="errorMsg">
+          <span *ngIf="suitColors.errors.required">Suit colors is required</span>
+        </div>
+      </div>
+    </div>
+    <div class="half">
+      <div class="form-control">
+        <label class="form-label" for="power">Power</label>
+        <input
+        type="text"
+        class="form-input w-100"
+        id="power"
+        name="power"
+        formControlName="power"
+        [ngClass]="{'errorField':power.touched && power.errors}"
+        (focus)="power.errors?null:power.markAsUntouched()"
+        >
+        <div *ngIf="power.touched && power.errors" class="errorMsg">
+          <span *ngIf="power.errors.required">Power is required</span>
+          <span *ngIf="power.errors.pattern">Please enter just numbers</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button
+  class="form-button"
+  [disabled]="!createHeroForm.valid"
+  >
+    Create
+  </button>
+</form>
+</div>

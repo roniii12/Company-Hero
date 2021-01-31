@@ -7,7 +7,7 @@ import { HeroesService } from '../heroes.service';
   templateUrl: './heroes-list.component.html',
   styleUrls: ['./heroes-list.component.css']
 })
-export class HeroesListComponent implements OnInit, OnDestroy {
+export class HeroesListComponent implements OnInit {
 
   heroes:Hero[]
   filtered:string = "";
@@ -20,9 +20,5 @@ export class HeroesListComponent implements OnInit, OnDestroy {
     this.heroesService.heroesChange.subscribe((heroes:Hero[])=>{
       this.heroes = heroes
     })
-  }
-
-  ngOnDestroy(){
-    this.heroesService.heroesChange.unsubscribe();
   }
 }

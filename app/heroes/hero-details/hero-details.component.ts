@@ -13,7 +13,7 @@ import { Hero } from '../hero.model';
   templateUrl: './hero-details.component.html',
   styleUrls: ['./hero-details.component.css']
 })
-export class HeroDetailsComponent implements OnInit, OnDestroy {
+export class HeroDetailsComponent implements OnInit {
 
   private subscription:Subscription;
   public hero:Hero;
@@ -43,8 +43,5 @@ export class HeroDetailsComponent implements OnInit, OnDestroy {
     improvmentPower = +improvmentPower.toFixed(3) + 1;
     const heroUpdated = {...this.hero,currentPower:this.hero.currentPower*improvmentPower};
     this.heroesService.updateHero(heroUpdated);
-  }
-  ngOnDestroy(){
-    this.heroesService.heroChange.unsubscribe();
   }
 }

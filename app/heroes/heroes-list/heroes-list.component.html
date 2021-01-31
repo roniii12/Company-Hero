@@ -1,9 +1,12 @@
-
-<div class="filter-heroes">
-  <input type="text" [(ngModel)]="filtered" placeholder="search hero">
-</div>
-
-<div class="wrap-card" *ngFor="let hero of heroes | filter:filtered:'name'; let i = index" >
-  <app-hero-item [hero]="hero"></app-hero-item>
+<div *ngIf="heroes" class="wrap-list-main">
+  <div class="filter-heroes">
+    <input type="text" [(ngModel)]="filtered" placeholder="search hero">
+  </div>
+  <div class="cards">
+    <div class="wrap-card" *ngFor="let hero of heroes | filter:filtered:'name'; let i = index" >
+      <app-hero-item class="wrap-card" [hero]="hero"></app-hero-item>
+    </div>
+    <button routerLink="new"  class="card-createHero">Create New Hero</button>
+  </div>
 </div>
 

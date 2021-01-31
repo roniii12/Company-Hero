@@ -1,0 +1,24 @@
+.form-hero{
+  width: 100%;
+  text-align: center;
+}
+.row{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.form-control{
+  width: 100%;
+  margin: 0;
+  margin-bottom: 10px;
+  text-align: start;
+}
+.form-button{
+  align-self: center;
+  width: 50%;
+}
+.form-label::after{
+  content: ':';
+}

@@ -1,10 +1,14 @@
-<a routerLink="{{hero._guid}}">
+<div *ngIf="!hero" style="text-align: center;">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+<a *ngIf="hero" routerLink="{{hero._guid}}">
 <div class="card" routerLinkActive="active">
-  <div class="title-card">
-    <span class="title">{{hero.name}}</span>
+  <div class="card-header">
+    <span class="card-title">{{hero.name}}</span>
+    <div class="card-smallTitle">power: {{(+hero.currentPower).toFixed(0)}}</div>
   </div>
-  <div class="details-card">
-    <span>{{hero.date}}</span>
+  <div class="card-details">
+    <span class="card-date">date: {{hero.date}}</span>
   </div>
 </div>
 </a>

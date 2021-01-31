@@ -1,3 +1,10 @@
+.wrap-list-main{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 .wrap-card{
   margin: 0 0 10px 0;
 }
@@ -7,7 +14,47 @@
 }
 
 .filter-heroes input{
+  width: 100%;
   border-radius: 5px;
   padding: 0.5rem;
+  border: 2px solid #262b3a9e;
+}
+
+.cards{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  overflow: auto;
+}
+.card-createHero{
+  background-color: #478bff;
+  color: #e03c3c;
+  border-color: #478bff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: .5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  height: 100px;
+  transition: .2s;
+  outline: none;
+
+}
+.card-createHero:active,.card-createHero:hover{
+  background-color: #3b76db;
+}
+
+@media screen and (max-width:790px){
+  .wrap-list-main{
+    flex-direction: column;
+    flex-wrap: nowrap;
+    overflow: auto;
+  }
+  .wrap-card{
+    margin-right: 10px;
+  }
+  .cards{
+    flex-direction: row;
+  }
 }
 

@@ -5,7 +5,7 @@ a{
 .card{
   height: 100px;
   width: 100%;
-  border: 1px solid blue;
+  border: 2px solid #e03c3c;
   border-radius: 10px;
   padding: 10px;
   display: flex;
@@ -14,11 +14,27 @@ a{
   justify-content: space-between;
 }
 
-.title{
+.card-title{
   font-size: 1.3rem;
   font-weight: 600;
+  width: max-content;
+}
+.card-details{
+  width: max-content;
+}
+.active .card-title{
+  color: #1065f5;
+}
+.card:not(.active) .card-smallTitle{
+  font-size: .8rem;
+  color: var(--title-color);
 }
 .active{
-  background-color: cornflowerblue;
+  background-color: #fc4a4a;
+  box-shadow: 2px 2px 4px #9e9898;
+  border-color: #fc4a4a;
   color:#fff;
+}
+.card-date{
+  font-size: .9rem;
 }

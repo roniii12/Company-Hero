@@ -9,7 +9,7 @@ import { getuid } from 'process';
 })
 export class HeroItemComponent implements OnInit {
 
-  @Input() hero:Hero={_guid: 'sadasd',ability:'attacker',date:new Date(),currentPower:10,name:'Superman',startingPower:5,suiteColors:'red'};
+  @Input() hero:Hero;
 
   constructor() { }
 

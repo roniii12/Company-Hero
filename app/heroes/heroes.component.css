@@ -1,0 +1,35 @@
+.wrap-main{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.wrap-list{
+  width: 30%;
+  flex-shrink: 0;
+}
+
+.wrap-heroDetails{
+  background-color: #eeeeee;
+  width: 100%;
+  padding: 10px;
+  flex-grow: 1;
+  overflow: auto;
+  /* display: flex;
+  flex-direction: row;
+  justify-content: center; */
+}
+/* ::ng-deep .wrap-heroDetails app-hero-details{
+  height: fit-content;
+  align-self: center;
+} */
+
+@media screen and (max-width:790px){
+  .wrap-main{
+    flex-direction: column;
+  }
+  .wrap-list{
+    width: 100%;
+  }
+}

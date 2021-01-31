@@ -5,12 +5,13 @@ import * as fromApp from '../store/app.reducer';
 import * as AuthActions from './store/auth.actions';
 import { User } from './user.model';
 import { map } from 'rxjs/operators';
-import { Subscription } from 'rxjs';
+import { Subscription, Subject, BehaviorSubject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private tokenExpirationTimer: any;
-  user:User;
+  private user:User;
+  public userChanged = new BehaviorSubject<User>(null);
   subscription:Subscription;
   constructor(
     private store: Store<fromApp.AppState>
@@ -36,15 +37,16 @@ export class AuthService {
       map(authState=>authState.user)
     ).subscribe((user:User)=>{
       this.user=user;
+      this.userChanged.next(user);
     })
   }
-  getUser(){
+  get User(){
     return this.user;
   }
   isAdmin(){
     if(this.user)
       return this.user.isAdmin;
     this.fetchUser();
-    return this.user.isAdmin;
+      return this.user.isAdmin;
   }
 }
