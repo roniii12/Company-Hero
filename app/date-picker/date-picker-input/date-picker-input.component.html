@@ -1,0 +1,12 @@
+<div class="wrap-input-datepicker" [ngClass]="{'largeInput':this.startDate}">
+  <div class="icon-date" *ngIf="this.startDate">
+    <app-date-icon></app-date-icon>
+  </div>
+  <input type="text" [ngModel]="date">
+  <button class="arrow-button" [disabled]="isPervArrowDisabled" (click)="onArrowClick('perv')">
+    <app-left-arrow-icon></app-left-arrow-icon>
+  </button>
+  <button class="arrow-button" [disabled]="isNextArrowDisabled" (click)="onArrowClick('next')">
+    <app-right-arrow-icon></app-right-arrow-icon>
+  </button>
+</div>

@@ -1,0 +1,58 @@
+input{
+  border: none;
+  width: unset;
+  padding: 8px 0;
+}
+button:disabled{
+  background-color:#fff !important;
+}
+.largeInput{
+  width: 211px !important;
+}
+.icon-date{
+  margin-right: 8px;
+}
+.wrap-input-datepicker{
+  position: relative;
+  border: 1px solid transparent;
+  width: var(--widthInput);
+  height: var(--heightInput);
+  border-radius: var(--fieldRadius);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding: 0 1px 0 16px;
+  color: #5f6368;
+}
+.wrap-input-datepicker:not(.largeInput):before{
+  background-color: #dadce0;
+  bottom: 13px;
+  content: '';
+  position: absolute;
+  left: -1px;
+  top: 13px;
+  width: 1px;
+  z-index: -2;
+}
+.wrap-input-datepicker:hover{
+  border-color: #646466;
+}
+.arrow-button{
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0;
+  color: inherit;
+  width: 32px;
+  height: 100%;
+  vertical-align: middle;
+  text-align: center;
+  flex-shrink: 0;
+  cursor: pointer;
+  border-radius: var(--fieldRadius);
+}
+.arrow-button:hover{
+  background-color: #f8f9fa;
+}

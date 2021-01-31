@@ -1,0 +1,42 @@
+<div class="wrapper-target">
+  <input type="text" name="targetInput" (click)="onTargetClick()" [ngModel]="inputResult">
+  <div class="dropdown" *ngIf="isShowDropDown===true" clickOutside (clickOutside)="onClickOutside()">
+    <div class="filter fieldWithIcons">
+      <!-- <svg width="25.5" height="56" viewBox="0 0 24 24" focusable="false" fill= "currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zM7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 2.88-2.88 7.19-5 9.88C9.92 16.21 7 11.85 7 9z"></path><circle cx="12" cy="9" r="2.5"></circle></svg> -->
+      <app-target-icon></app-target-icon>
+      <input type="text" name="filterInput" class="filterInput" [(ngModel)]="inputFilter">
+    </div>
+    <ul class="list-locations">
+      <li *ngFor="let location of locations | filter:inputFilter:'name' ; let i=index">
+        <div class="background" [ngClass]="{'location-item-hover':isHoverListItem[i.toString()]}"></div>
+        <div class="location-item"(mouseover)="onHoverListItem(i.toString())"(mouseout)="onBlurListItem(i.toString())">
+          <div class="location-details"(click)="onListClick(location.name)">
+            <app-target-icon *ngIf="location.type==='city'"></app-target-icon>
+            <app-country-icon *ngIf="location.type==='country'"></app-country-icon>
+            <div class="location-name">
+              <span>{{location.name}}<span *ngIf="location.parent">, {{location.parent}}</span></span>
+              <small>{{location.type}}<span *ngIf="location.parent">, {{location.parent}}</span></small>
+            </div>
+          </div>
+          <button #toggleButton *ngIf="location.children" class="toggle-button" [ngClass]="{'opposite': this.isClickedOnToggleButton[location.name+location.parent]}" (mouseover)="onHoverToggleButton()" (mouseout)="onBlurToggleButton()" (click)="onToggleButtonClick(location.name+location.parent)">
+            <svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class=" NMm5M"><path d="M5.41 7.59L4 9l8 8 8-8-1.41-1.41L12 14.17"></path></svg>
+          </button>
+        </div>
+        <!-- *ngIf="location.children" -->
+        <ul *ngIf="location.children && this.isClickedOnToggleButton[location.name+location.parent]">
+          <li *ngFor="let airport of location.children; let j=index" (click)="onListClick(airport.name)">
+            <div class="background" [ngClass]="{'location-item-hover':isHoverListItem[i.toString()+'-'+j]}"></div>
+            <div class="location-item button-blur" (mouseover)="onHoverListItem(i.toString()+'-'+j)" (mouseout)="onBlurListItem(i.toString()+'-'+j)">
+              <div class="location-details">
+                <app-air-port-icon></app-air-port-icon>
+                  <div class="location-name">
+                    {{airport.name}}
+                  </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

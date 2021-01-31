@@ -1,0 +1,16 @@
+<div class="groupDateInput">
+  <app-date-picker-input [startDate]="true" [date]="startDate.value" [dateVal]="startDate.date" (click)="onInputClick('start')"></app-date-picker-input>
+  <app-date-picker-input [date]="endDate.value" [dateVal]="endDate.date" (click)="onInputClick('end')"></app-date-picker-input>
+</div>
+<div class="board-calendar">
+  <button (click)="onArrowButton('perv')" [ngClass]="{'none':Month===currentMonth}">
+    <app-left-arrow-icon></app-left-arrow-icon>
+  </button>
+  <ng-template appPlaceholder>
+    <!-- <app-date-picker-calendar [year] ="year" [month]="getMonth+1" [startDate]="startDate"></app-date-picker-calendar>
+    <app-date-picker-calendar [year] ="year" [month]="getMonth+1" [startDate]="startDate"></app-date-picker-calendar> -->
+  </ng-template>
+  <button (click)="onArrowButton('next')" [ngClass]="{'none':Month===10}">
+    <app-right-arrow-icon></app-right-arrow-icon>
+  </button>
+</div>

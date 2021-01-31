@@ -1,0 +1,21 @@
+<div class="calendar">
+  <div class="title-month">{{monthStr}}</div>
+  <div class="row-calendar head-calendar">
+      <div class="cell-calendar cell-head">S</div>
+      <div class="cell-calendar cell-head">M</div>
+      <div class="cell-calendar cell-head">T</div>
+      <div class="cell-calendar cell-head">W</div>
+      <div class="cell-calendar cell-head">T</div>
+      <div class="cell-calendar cell-head">F</div>
+      <div class="cell-calendar cell-head">S</div>
+  </div>
+    <div class="row-calendar" *ngFor="let week of this.matrizDaysInMonth">
+      <div class="cell-calendar" *ngFor="let day of week" [ngClass]="{'background-between':day && day.type==='between', 'background-start': day && day.type==='start', 'background-end': day && day.type==='end'}">
+        <div *ngIf="day" class="day-calendar" attr.value="{{day.value}}"(click)="onDayClick(day)" [ngClass]="{'day-end':day.type==='start' || day.type==='end', 'disabled': day.type==='disabled' , 'choose':(day.type==='start'&&isStartDateFocus===true)||(day.type==='end'&&isStartDateFocus===false)}">
+          <div *ngIf="(day.day === numDaysInMonth || day.day === 1)  && day.type==='between'" [ngClass]="{'end-calendar':day.day===numDaysInMonth, 'start-calendar': day.day===1}"></div>
+          {{day.day}}
+        </div>
+      </div>
+    </div>
+</div>
+

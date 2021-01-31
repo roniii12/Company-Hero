@@ -1,0 +1,17 @@
+.groupDateInput{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  border: 1px solid var(--borderColorInput);
+  border-radius: var(--fieldRadius);
+  width: fit-content;
+  box-sizing: content-box;
+}
+.board-calendar{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.none{
+  display: none !important;
+}
